@@ -20,8 +20,11 @@ export function fetchGeolocation(data) {
 
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', { params })
       .then(response => {
-        const payload = response.data.results[0].geometry.location
-        dispatch({type: FETCH_GEOLOCATION_SUCCESS, payload })
+        const location = response.data.results[0].geometry.location
+        dispatch({type: FETCH_GEOLOCATION_SUCCESS, payload: {
+          location,
+          zoom: logradouro ? 18 : 14
+        } })
       })
       .catch(err => {
         dispatch({type: FETCH_GEOLOCATION_FAIL, payload: err})

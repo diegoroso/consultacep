@@ -5,7 +5,15 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-  data: {},
+  data: {
+    location: {
+      lat: -16.7234029,
+      lng: -56.4575307
+    },
+    zoom: 3,
+    marker: false
+  },
+  error: null,
   loading: false,
   loaded: false
 }
@@ -21,7 +29,11 @@ export default function reducer(state=initialState, action) {
     case FETCH_GEOLOCATION_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: {
+          location: action.payload.location,
+          zoom: action.payload.zoom,
+          marker: true
+        },
         loading: false,
         loaded: true
       }
@@ -29,7 +41,8 @@ export default function reducer(state=initialState, action) {
       case FETCH_GEOLOCATION_FAIL:
         return {
           ...state,
-          data: action.payload,
+          data: initialState.data,
+          error: action.payload,
           loading: false,
           loaded: true
         }

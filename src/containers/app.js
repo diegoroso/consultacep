@@ -21,8 +21,7 @@ class App extends Component {
       <div className="App">
         <div className="App-content">
           <InputCep onFetchCep={this.fetchCep}/>
-          <Map />
-          <pre> { this.props.cep.data.localidade } </pre>
+          <Map state={this.props.map}/>
         </div>
       </div>
     );
