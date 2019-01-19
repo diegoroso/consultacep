@@ -3,13 +3,12 @@ import InputMask from 'react-input-mask';
 import PropTypes from 'prop-types';
 
 class InputCep extends Component {
+  static propTypes = {
+    onFetchCep: PropTypes.func
+  }
 
   constructor() {
     super();
-
-    this.propTypes = {
-      onFetchCep: PropTypes.func
-    }
 
     this.state = {
       cep: ''

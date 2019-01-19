@@ -1,5 +1,7 @@
 const initialState = {
-  code: '99999-999'
+  data: {},
+  loading: false,
+  loaded: false
 }
 
 export default function reducer(state=initialState, action) {
@@ -7,8 +9,24 @@ export default function reducer(state=initialState, action) {
     case 'FETCH_CEP':
       return {
         ...state,
-        code: action.payload
+        loading: true
       }
+
+    case 'FETCH_CEP_SUCCESS':
+      return {
+        ...state,
+        data: action.payload,
+        loading: false,
+        loaded: true
+      }
+
+      case 'FETCH_CEP_FAIL':
+        return {
+          ...state,
+          data: action.payload,
+          loading: false,
+          loaded: true
+        }
 
     default:
       return initialState

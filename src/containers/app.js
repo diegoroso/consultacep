@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { fetchCep } from '../actions/cep'
 
 const mapStateToProps = state => ({
-  cep: state.cep.code
+  cep: state.cep.data
 })
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <div className="App-content">
           <InputCep onFetchCep={this.onFetchCep}/>
-          <pre> { this.props.cep } </pre>
+          <pre> { this.props.cep.localidade } </pre>
         </div>
       </div>
     );

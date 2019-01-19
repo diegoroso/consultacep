@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://diegoroso.github.io/consultacep",
   "dependencies": {
+    "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
