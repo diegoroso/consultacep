@@ -40,8 +40,8 @@ class InputCep extends Component {
       <InputMask
         autoFocus
         value={this.state.cep}
-        maskChar=''
         mask='99999-999'
+        maskChar=''
         placeholder='Ex.: 12970-000'
         onClick={this.handleClick}
         onChange={this.handleChange} />
