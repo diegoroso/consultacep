@@ -9,7 +9,13 @@
     "react": "^16.7.0",
     "react-app-polyfill": "^0.2.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "react-input-mask": "^2.0.4",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -27,5 +33,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.7"
+  }
 }
