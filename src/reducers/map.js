@@ -1,7 +1,7 @@
 import {
-  FETCH_CEP,
-  FETCH_CEP_SUCCESS,
-  FETCH_CEP_FAIL
+  FETCH_GEOLOCATION,
+  FETCH_GEOLOCATION_SUCCESS,
+  FETCH_GEOLOCATION_FAIL
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -12,13 +12,13 @@ const initialState = {
 
 export default function reducer(state=initialState, action) {
   switch (action.type) {
-    case FETCH_CEP:
+    case FETCH_GEOLOCATION:
       return {
         ...state,
         loading: true
       }
 
-    case FETCH_CEP_SUCCESS:
+    case FETCH_GEOLOCATION_SUCCESS:
       return {
         ...state,
         data: action.payload,
@@ -26,7 +26,7 @@ export default function reducer(state=initialState, action) {
         loaded: true
       }
 
-      case FETCH_CEP_FAIL:
+      case FETCH_GEOLOCATION_FAIL:
         return {
           ...state,
           data: action.payload,

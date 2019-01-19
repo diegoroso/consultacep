@@ -4,13 +4,15 @@ import Map from '../components/map';
 
 import { connect } from 'react-redux'
 import { fetchCep } from '../actions/cep'
+import { fetchGeolocation } from '../actions/map'
 
 const mapStateToProps = state => ({
-  cep: state.cep.data
+  cep: state.cep,
+  map: state.map
 })
 
 class App extends Component {
-  onFetchCep = (payload) => {
+  fetchCep = (payload) => {
     this.props.fetchCep(payload);
   }
 
@@ -18,12 +20,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-content">
-          <InputCep onFetchCep={this.onFetchCep}/>
+          <InputCep onFetchCep={this.fetchCep}/>
           <Map />
-          <pre> { this.props.cep.localidade } </pre>
+          <pre> { this.props.cep.data.localidade } </pre>
         </div>
       </div>
     );
   }
 }
-export default connect(mapStateToProps, { fetchCep })(App)
+export default connect(mapStateToProps, { fetchCep, fetchGeolocation })(App)

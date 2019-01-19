@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const GoogleMapMarker = () => <img className="map-marker" src={'/marker.png'} alt='Marker' />;
+const GoogleMapMarker = () => <img className="map-marker" src={'/images/marker.png'} alt='Marker' />;
 
 class Map extends Component {
   static defaultProps = {
-    center: {
+    location: {
       lat: -23.054166,
       lng: -46.3558554
     },
@@ -17,12 +17,12 @@ class Map extends Component {
       <div style={{ height: '100vh', width: '100vw' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyD2WqEZVC_PPsnICgtGQ5PPEsp07ooyISE' }}
-          defaultCenter={this.props.center}
+          defaultCenter={this.props.location}
           defaultZoom={this.props.zoom}
         >
           <GoogleMapMarker
-            lat={-23.054166}
-            lng={-46.3558554}
+            lat={this.props.location.lat}
+            lng={this.props.location.lng}
           ></GoogleMapMarker>
         </GoogleMapReact>
       </div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class InputCep extends Component {
   static propTypes = {
-    onFetchCep: PropTypes.func
+    fetchCep: PropTypes.func
   }
 
   constructor() {
@@ -24,8 +24,8 @@ class InputCep extends Component {
     });
 
     if (e.target.value.length === 9) {
-      e.target.blur();
       this.props.onFetchCep(e.target.value)
+      e.target.blur();
     }
   }
 
