@@ -19,8 +19,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-content">
-          <InputCep onFetchCep={this.fetchCep}/>
+        <div className="App__content">
+          <div className={`App__informations ${!!this.props.cep.data.cep ? 'loaded' : ''}`}>
+            <InputCep onFetchCep={this.fetchCep}/>
+            { this.props.cep.data.erro && !this.props.cep.loading ? <p className='App__informations__error'>CEP não encontrado</p> : null }
+          </div>
           <Map state={this.props.map}/>
         </div>
       </div>

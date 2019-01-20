@@ -10,7 +10,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
 }
 
 .App {
@@ -27,6 +27,65 @@ code {
     h1 {
       font-size: calc(10px + 2vmin);
       color: white;
+    }
+  }
+
+  &__informations {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__error {
+      width: 100%;
+      text-transform: uppercase;
+      color: red;
+      font-weight: 800;
+      border: 1px solid #fff;
+      text-shadow: 1px 1px 1px #fff;
+      background-color: #3A8FCF80;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    &.loaded {
+      transition: width 1.5s, height 1.5s;
+      height: 10vh;
+      width: 190px;
+      top: 10px;
+      left: 10px;
+
+      input {
+        font-size: 28px;
+        width: 170px;
+        height: 45px;
+        transition: height width 1s;
+      }
+    }
+
+    input {
+      border: 1px solid #3A8FCF;
+      font-size: 36px;
+      max-width: 300px;
+      outline: none;
+      font-size: 54px;
+      text-align: center;
+      border-radius: 6px;
+      height: 65px;
+
+      &:focus {
+        box-shadow: 0px 0px 5px #3A8FCF;
+
+        &::placeholder {
+          color: transparent;
+        }
+      }
     }
   }
 }
