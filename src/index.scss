@@ -69,6 +69,7 @@ body {
       text-align: center;
       border-radius: 6px;
       height: 45px;
+      width: 230px;
 
       &:focus {
         &::placeholder {
@@ -81,23 +82,34 @@ body {
       top: 15px;
       left: 15px;
       width: 250px;
-      height: 140px;
-      transition: height .2s, width .2s, top .2s, left .2s;
+      height: auto;
+      min-height: 100px;
+      transition: height 1s, width 1s, top 1s, left 1s;
+
+      .input-cep {
+        margin-bottom: 15px;
+      }
 
       .main__informations {
         &__box {
-          height: 100%;
+          height: auto;
           width: 100%;
           top: 0;
-          min-height: initial;
-          padding: 15px;
+          min-height: inherit;
+          padding: 10px;
 
-          transition: height .5s, width .5s, top .5s;
+          transition: height 1s, width 1s, top 1s;
 
           p {
             width: 100%;
+            min-height: 20px;
+            line-height: 14px;
             font-size: 12px;
-            margin: 10px 0 0 0;
+            margin: 0;
+
+            &:first-child {
+              margin-top: 15px;
+            }
           }
         }
       }

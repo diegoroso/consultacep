@@ -27,7 +27,7 @@ class App extends Component {
     if (!this.props.cep.data.error && !this.props.cep.loaded) {
       return <p className='main__informations__description'>Preencha o cep no campo abaixo para consultar a região desejada.</p>
     } else if (this.props.cep.data.erro  && !this.props.cep.loading) {
-      return <p className='main__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
+      return <p className='main__informations__description main__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
     }
   }
 

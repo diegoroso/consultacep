@@ -9,7 +9,7 @@ class Loader extends Component {
       <div className={`loader ${this.props.show ? 'show' : ''}`}>
         <div className='loader__content'>
           <img src={LoaderImg} alt="Carregando" />
-          <p>Procurando no mapa CEP pesquisado</p>
+          <p>Procurando localização no mapa</p>
         </div>
       </div>
     );
