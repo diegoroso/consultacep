@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import MarkerImg from '../assets/images/marker.png'
 
-const GoogleMapMarker = () => <img className="map-marker" src={'/images/marker.png'} alt='Marker'/>;
+const GoogleMapMarker = () => <img className="map-marker" src={MarkerImg} alt='Marker'/>;
 
 class Map extends Component {
   render() {

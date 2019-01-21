@@ -32,15 +32,16 @@ body {
       padding: 0 15px;
       box-sizing: border-box;
       width: 100vw;
-      height: 30vh;
-      top: 35vh;
-      min-height: 250px;
+      height: 250px;
+      top: 30vh;
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       background-color: #fffc;
+
+      transition: height .2s, width .2s, top .2s, left .2s;
     }
 
     &__title {
@@ -52,7 +53,7 @@ body {
       font-size: 22px;
       margin: 15px 0;
       max-width: 300px;
-      text-align: justify;
+      text-align: center;
 
       &--error {
         color: #ff0000;
@@ -81,7 +82,7 @@ body {
       left: 15px;
       width: 250px;
       height: 140px;
-      transition: height 1s, width 1s, top 1s, left 1s;
+      transition: height .2s, width .2s, top .2s, left .2s;
 
       .main__informations {
         &__box {
@@ -90,6 +91,8 @@ body {
           top: 0;
           min-height: initial;
           padding: 15px;
+
+          transition: height .5s, width .5s, top .5s;
 
           p {
             width: 100%;

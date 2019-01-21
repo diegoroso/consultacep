@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import InputCep from '../components/input-cep'
-import Map from '../components/map';
-
 import { connect } from 'react-redux'
 import { fetchCep } from '../actions/cep'
 import { fetchGeolocation } from '../actions/map'
+
+import Map from '../components/map';
+import Loader from '../components/loader';
+import InputCep from '../components/input-cep'
 
 const mapStateToProps = state => ({
   cep: state.cep,
@@ -26,7 +27,7 @@ class App extends Component {
     if (!this.props.cep.data.error && !this.props.cep.loaded) {
       return <p className='main__informations__description'>Preencha o cep no campo abaixo para consultar a região desejada.</p>
     } else if (this.props.cep.data.erro  && !this.props.cep.loading) {
-      return <p className='main__informations__description--error'>CEP não encontrado, favor tentar novamente.</p>
+      return <p className='main__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
     }
   }
 
@@ -53,6 +54,7 @@ class App extends Component {
             { this.address() }
           </div>
         </div>
+        <Loader show={this.props.cep.loading || this.props.map.loading}></Loader>
       </div>
     );
   }

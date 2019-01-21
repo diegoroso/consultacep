@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import InputMask from 'react-input-mask';
-import PropTypes from 'prop-types';
 
 class InputCep extends Component {
-  static propTypes = {
-    fetchCep: PropTypes.func
-  }
 
   constructor() {
     super();

@@ -7,10 +7,10 @@ import {
 const initialState = {
   data: {
     location: {
-      lat: -16.7234029,
-      lng: -56.4575307
+      lat: -14.7234029,
+      lng: -51.4575307
     },
-    zoom: 3,
+    zoom: 4,
     marker: false
   },
   error: null,
