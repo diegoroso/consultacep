@@ -41,7 +41,8 @@ class InputCep extends Component {
         value={this.state.cep}
         mask='99999-999'
         maskChar=''
-        placeholder='CEP'
+        className='input-cep'
+        placeholder='Ex.: 02047-000'
         onClick={this.handleClick}
         onChange={this.handleChange} />
     );

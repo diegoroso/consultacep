@@ -8,82 +8,94 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
-}
-
-.App {
-  text-align: center;
-
-  &-content {
-    background-color: #3A8FCF;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h1 {
-      font-size: calc(10px + 2vmin);
-      color: white;
-    }
-  }
+.main {
+  background-color: #3A8FCF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &__informations {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
     background-color: transparent;
+    z-index: 1;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
 
-    &__error {
-      width: 100%;
-      text-transform: uppercase;
-      color: red;
-      font-weight: 800;
-      border: 1px solid #fff;
-      text-shadow: 1px 1px 1px #fff;
-      background-color: #3A8FCF80;
-      height: 30px;
-      line-height: 30px;
+    &__box {
+      padding: 0 15px;
+      box-sizing: border-box;
+      width: 100vw;
+      height: 30vh;
+      top: 35vh;
+      min-height: 250px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fffc;
     }
 
-    &.loaded {
-      transition: width 1.5s, height 1.5s;
-      height: 10vh;
-      width: 190px;
-      top: 10px;
-      left: 10px;
+    &__title {
+      margin: 0;
+      font-size: 36px;
+    }
 
-      input {
-        font-size: 28px;
-        width: 170px;
-        height: 45px;
-        transition: height width 1s;
+    &__description {
+      font-size: 22px;
+      margin: 15px 0;
+      max-width: 300px;
+      text-align: justify;
+
+      &--error {
+        color: #ff0000;
+        font-weight: 800;
       }
     }
 
-    input {
+    .input-cep {
       border: 1px solid #3A8FCF;
-      font-size: 36px;
-      max-width: 300px;
+      font-size: 22px;
+      max-width: 100%;
       outline: none;
-      font-size: 54px;
       text-align: center;
       border-radius: 6px;
-      height: 65px;
+      height: 45px;
 
       &:focus {
-        box-shadow: 0px 0px 5px #3A8FCF;
-
         &::placeholder {
           color: transparent;
+        }
+      }
+    }
+
+    &.loaded {
+      top: 15px;
+      left: 15px;
+      width: 250px;
+      height: 140px;
+      transition: height 1s, width 1s, top 1s, left 1s;
+
+      .main__informations {
+        &__box {
+          height: 100%;
+          width: 100%;
+          top: 0;
+          min-height: initial;
+          padding: 15px;
+
+          p {
+            width: 100%;
+            font-size: 12px;
+            margin: 10px 0 0 0;
+          }
         }
       }
     }
