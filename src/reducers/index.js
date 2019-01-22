@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 
-import cep from './cep';
-import map from './map';
+import location from './location';
 
-export default combineReducers({ cep, map })
+export default combineReducers({ location })

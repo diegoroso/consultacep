@@ -7,18 +7,18 @@ const GoogleMapMarker = () => <img className="googlemaps-marker" src={MarkerImg}
 
 class Map extends Component {
   render() {
-    const { location, zoom, marker } = this.props.state.data;
+    const { coordinates, zoom, marker } = this.props.location.data;
 
     return (
       <div className='googlemaps'>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyD2WqEZVC_PPsnICgtGQ5PPEsp07ooyISE' }}
-          center={location}
+          center={coordinates}
           zoom={zoom}
         >
           {marker ? <GoogleMapMarker
-            lat={location.lat}
-            lng={location.lng}
+            lat={coordinates.lat}
+            lng={coordinates.lng}
           ></GoogleMapMarker> : null}
         </GoogleMapReact>
       </div>
