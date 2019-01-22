@@ -1,36 +1,34 @@
+@import './variables';
+
 .loader {
-  width: 100vw;
-  height: 100vh;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 1;
-  display: none;
-
-  transition: display 5s;
 
   &.show {
     display: block;
-
-    transition: display 3s;
   }
 
   &__content {
-    align-items: center;
-    background-color: #fff;
-    box-sizing: border-box;
     display: flex;
-    height: 160px;
-    justify-content: center;
     position: absolute;
     top: 0;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
+    height: 160px;
+    background-color: $white;
+    box-sizing: border-box;
 
     p {
-      font-size: 22px;
-      line-height: 24px;
       margin: 0;
       padding-right: 30px;
+      font-size: 22px;
+      line-height: 24px;
       text-align: center;
     }
   }

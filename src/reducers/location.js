@@ -29,15 +29,10 @@ const initialState = {
 export default function reducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_CEP:
-      return {
-        ...state,
-        loading: true,
-        error: false
-      }
-
     case FETCH_GEOLOCATION:
       return {
         ...state,
+        loading: true,
         error: false
       }
 
@@ -69,14 +64,6 @@ export default function reducer(state=initialState, action) {
       }
 
     case FETCH_CEP_FAIL:
-      return {
-        ...state,
-        data: initialState.data,
-        error: true,
-        loading: false,
-        loaded: true
-      }
-
     case FETCH_GEOLOCATION_FAIL:
       return {
         ...state,

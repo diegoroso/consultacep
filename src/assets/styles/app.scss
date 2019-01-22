@@ -1,0 +1,97 @@
+@import './variables';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $primary-color;
+
+  &__informations {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 1;
+
+    &__box {
+      display: flex;
+      position: absolute;
+      top: 30vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 250px;
+      padding: 0 15px;
+      transition: height .2s, width .2s, top .2s, left .2s;
+      background-color: $white-transparent;
+      box-sizing: border-box;
+    }
+
+    &__title {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    &__description {
+      max-width: 300px;
+      margin: 15px 0;
+      font-size: 22px;
+      text-align: center;
+
+      &--error {
+        color: $red;
+        font-weight: 600;
+      }
+    }
+
+    &.loaded {
+      top: 15px;
+      left: 15px;
+      width: 250px;
+      height: auto;
+      min-height: 100px;
+      transition: height 1s, width 1s, top 1s, left 1s;
+
+      .input-cep {
+        margin-bottom: 15px;
+      }
+
+      .main__informations {
+        &__box {
+          top: 0;
+          width: 100%;
+          height: auto;
+          min-height: inherit;
+          padding: 10px;
+          transition: height 1s, width 1s, top 1s;
+
+          p {
+            width: 100%;
+            min-height: 20px;
+            margin: 0;
+            font-size: 12px;
+            line-height: 14px;
+
+            &:first-child {
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

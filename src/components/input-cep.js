@@ -1,3 +1,4 @@
+import '../assets/styles/input-cep.scss'
 import React, { Component } from 'react';
 import InputMask from 'react-input-mask';
 
