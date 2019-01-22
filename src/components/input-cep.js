@@ -35,6 +35,7 @@ class InputCep extends Component {
     return (
       <InputMask
         value={this.state.cep}
+        type="tel"
         mask='99999-999'
         maskChar=''
         className='input-cep'

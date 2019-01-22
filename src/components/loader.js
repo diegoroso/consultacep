@@ -1,7 +1,6 @@
+import '../assets/styles/loader.scss'
 import React, { Component } from 'react';
 import LoaderImg from '../assets/images/loader.gif'
-
-import '../assets/styles/loader.scss'
 
 class Loader extends Component {
   render() {

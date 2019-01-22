@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { fetchCep } from '../actions/cep'
 import { fetchGeolocation } from '../actions/map'
@@ -35,10 +35,10 @@ class App extends Component {
     const {cep, logradouro, bairro, localidade, uf} = this.props.cep.data
 
     return (
-      <React.Fragment>
+      <Fragment>
         { logradouro && bairro ? <p>{logradouro}, {bairro}</p> : '' }
         { localidade && uf && cep ? <p>{localidade}/{uf} - {cep}</p> : '' }
-      </React.Fragment>
+      </Fragment>
     )
   }
 
