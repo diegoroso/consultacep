@@ -4,7 +4,8 @@ import {
   FETCH_CEP_SUCCESS,
   FETCH_GEOLOCATION_SUCCESS,
   FETCH_CEP_FAIL,
-  FETCH_GEOLOCATION_FAIL
+  FETCH_GEOLOCATION_FAIL,
+  RESET_TO_DEFAULT
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -72,6 +73,9 @@ export default function reducer(state=initialState, action) {
         loading: false,
         loaded: true
       }
+
+    case RESET_TO_DEFAULT:
+      return initialState
 
     default:
       return state

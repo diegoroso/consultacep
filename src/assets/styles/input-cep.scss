@@ -4,11 +4,17 @@
   width: 230px;
   max-width: 100%;
   height: 45px;
+  padding-right: 30px;
   border: 1px solid $primary-color;
   border-radius: 6px;
   outline: none;
+  background-image: url('../images/search.png');
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 32px;
   font-size: 22px;
   text-align: center;
+  box-sizing: border-box;
 
   &:focus {
     &::placeholder {

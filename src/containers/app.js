@@ -2,25 +2,28 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { fetchCep } from '../actions/cep'
 import { fetchGeolocation } from '../actions/map'
+import { resetToDefault } from '../actions/reset';
 
 import Map from '../components/map';
 import Loader from '../components/loader';
 import InputCep from '../components/input-cep'
+import backIcon from '../assets/images/back.png'
 
 const mapStateToProps = state => ({
   location: state.location
 })
 
 class App extends Component {
+
   fetchCep = (payload) => {
-    this.props.fetchCep(payload);
+    this.props.fetchCep(payload)
   }
 
   title = () => {
     const { cep } = this.props.location.data
 
     if (!cep) {
-      return <h1 className='main__informations__title'>Consulta CEP</h1>
+      return <h1 className='app__informations__title'>Consulta CEP</h1>
     }
   }
 
@@ -28,11 +31,11 @@ class App extends Component {
     const { error, loaded, loading } = this.props.location
 
     if (!error && !loaded) {
-      return <p className='main__informations__description'>Preencha o cep no campo abaixo para consultar a região desejada.</p>
+      return <p className='app__informations__description'>Preencha o cep no campo abaixo para consultar a região desejada.</p>
     }
 
     if (error  && !loading) {
-      return <p className='main__informations__description main__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
+      return <p className='app__informations__description app__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
     }
   }
 
@@ -41,8 +44,15 @@ class App extends Component {
 
     return (
       <Fragment>
-        { logradouro && bairro ? <p>{logradouro}, {bairro}</p> : '' }
-        { localidade && uf && cep ? <p>{localidade}/{uf} - {cep}</p> : '' }
+        { cep ?
+          <div className='app__informations__addresses'>
+            <img src={backIcon} alt='Voltar' />
+            <div>
+              { logradouro && bairro ? <p>{logradouro}, {bairro}</p> : '' }
+              { localidade && uf ? <p>{localidade}/{uf} - {cep}</p> : '' }
+            </div>
+          </div>
+        : ''}
       </Fragment>
     )
   }
@@ -50,13 +60,13 @@ class App extends Component {
   render() {
     const {data, loading} = this.props.location
     return (
-      <div className="main">
+      <div className="app">
         <Map location={this.props.location}/>
-        <div className={`main__informations ${data.cep ? 'loaded' : ''}`}>
-          <div className='main__informations__box'>
+        <div className={`app__informations ${data.cep ? 'loaded' : ''}`}>
+          <div className='app__informations__box'>
             { this.title() }
             { this.description() }
-            <InputCep onFetchCep={this.fetchCep}/>
+            <InputCep onRef={ref => this.InputCep = ref} onFetchCep={this.fetchCep}/>
             { this.address() }
           </div>
         </div>
@@ -65,4 +75,4 @@ class App extends Component {
     );
   }
 }
-export default connect(mapStateToProps, { fetchCep, fetchGeolocation })(App)
+export default connect(mapStateToProps, { fetchCep, fetchGeolocation, resetToDefault })(App)
