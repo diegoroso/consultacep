@@ -15,7 +15,7 @@ export function fetchGeolocation(data) {
     const params = {
       address: `${cep} ${localidade} ${logradouro}`,
       language: 'pt-BR',
-      key: 'AIzaSyD2WqEZVC_PPsnICgtGQ5PPEsp07ooyISE'
+      key: process.env.REACT_APP_GOOGLEMAPS_KEY
     }
 
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', { params })

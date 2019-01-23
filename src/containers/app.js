@@ -57,15 +57,15 @@ class App extends Component {
 
     return (
       <Fragment>
-        { cep ?
+        { cep &&
           <div className='app__informations__addresses'>
             <img src={backIcon} onClick={this.handleClick} alt='Voltar' />
             <div>
-              { logradouro && bairro ? <p>{logradouro}, {bairro}</p> : '' }
-              { localidade && uf ? <p>{localidade}/{uf} - {cep}</p> : '' }
+              { logradouro && <p>{logradouro}, {bairro}</p> }
+              <p>{localidade}/{uf} - {cep}</p>
             </div>
           </div>
-        : ''}
+        }
       </Fragment>
     )
   }
