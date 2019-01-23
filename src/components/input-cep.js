@@ -15,7 +15,21 @@ class InputCep extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
+  componentDidMount = () => {
+    this.props.onRef(this)
+  }
+
+  componentWillUnmount = () => {
+    this.props.onRef(undefined)
+  }
+
+  resetState = () => {
+    this.setState({
+      cep: ''
+    });
+  }
+
+  handleChange = (e) => {
     this.setState({
       cep: e.target.value
     });
@@ -26,13 +40,13 @@ class InputCep extends Component {
     }
   }
 
-  handleClick(e) {
+  handleClick = () => {
     this.setState({
       cep: ''
     });
   }
 
-  render() {
+  render = () => {
     return (
       <InputMask
         value={this.state.cep}

@@ -15,8 +15,20 @@ const mapStateToProps = state => ({
 
 class App extends Component {
 
+  constructor() {
+    super()
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+
   fetchCep = (payload) => {
     this.props.fetchCep(payload)
+  }
+
+  handleClick = () => {
+    this.props.resetToDefault()
+    this.InputCep.resetState()
   }
 
   title = () => {
@@ -28,13 +40,14 @@ class App extends Component {
   }
 
   description = () => {
+    const { cep } = this.props.location.data
     const { error, loaded, loading } = this.props.location
 
-    if (!error && !loaded) {
+    if (!cep && !error && !loaded) {
       return <p className='app__informations__description'>Preencha o cep no campo abaixo para consultar a região desejada.</p>
     }
 
-    if (error  && !loading) {
+    if (!cep && error && !loading) {
       return <p className='app__informations__description app__informations__description--error'>CEP não encontrado, por favor tente novamente.</p>
     }
   }
@@ -46,7 +59,7 @@ class App extends Component {
       <Fragment>
         { cep ?
           <div className='app__informations__addresses'>
-            <img src={backIcon} alt='Voltar' />
+            <img src={backIcon} onClick={this.handleClick} alt='Voltar' />
             <div>
               { logradouro && bairro ? <p>{logradouro}, {bairro}</p> : '' }
               { localidade && uf ? <p>{localidade}/{uf} - {cep}</p> : '' }
@@ -57,8 +70,8 @@ class App extends Component {
     )
   }
 
-  render() {
-    const {data, loading} = this.props.location
+  render = () => {
+    const {loading, data} = this.props.location
     return (
       <div className="app">
         <Map location={this.props.location}/>
