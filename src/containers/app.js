@@ -59,7 +59,7 @@ class App extends Component {
       <Fragment>
         { cep &&
           <div className='app__informations__addresses'>
-            <img src={backIcon} onClick={this.handleClick} alt='Voltar' />
+            <img data-cy='Back' src={backIcon} onClick={this.handleClick} alt='Voltar' />
             <div>
               { logradouro && <p>{logradouro}, {bairro}</p> }
               <p>{localidade}/{uf} - {cep}</p>

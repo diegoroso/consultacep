@@ -49,6 +49,7 @@ class InputCep extends Component {
   render = () => {
     return (
       <InputMask
+        data-cy='InputMask'
         value={this.state.cep}
         type="tel"
         mask='99999-999'
