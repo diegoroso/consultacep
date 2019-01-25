@@ -3,7 +3,7 @@ import {
 } from '../actions/actionTypes';
 
 export function resetToDefault() {
-  return dispatch => {
-    dispatch({type: RESET_TO_DEFAULT})
+  return {
+    type: RESET_TO_DEFAULT
   }
 }

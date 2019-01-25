@@ -18,7 +18,7 @@ export function fetchGeolocation(data) {
       key: process.env.REACT_APP_GOOGLEMAPS_KEY
     }
 
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json', { params })
+    return axios.get('https://maps.googleapis.com/maps/api/geocode/json', { params })
       .then(response => {
         const location = response.data.results[0].geometry.location
         dispatch({type: FETCH_GEOLOCATION_SUCCESS, payload: {

@@ -23,7 +23,8 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "cypress:open": "cypress open"
   },
   "eslintConfig": {
@@ -36,8 +37,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "babel-jest": "23.6.0",
     "cypress": "^3.1.4",
+    "fetch-mock": "^7.3.0",
+    "jest": "23.6.0",
+    "node-fetch": "^2.3.0",
     "redux-devtools-extension": "^2.13.7",
+    "redux-mock-store": "^1.5.3",
     "sass-lint": "^1.12.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/"
+    ]
   }
 }

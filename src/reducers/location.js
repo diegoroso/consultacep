@@ -8,7 +8,7 @@ import {
   RESET_TO_DEFAULT
 } from '../actions/actionTypes';
 
-const initialState = {
+export const initialState = {
   data: {
     cep: '',
     logradouro: '',

@@ -12,7 +12,7 @@ export function fetchCep(zipcode) {
   return dispatch => {
     dispatch({type: FETCH_CEP})
 
-    axios.get(`https://viacep.com.br/ws/${zipcode}/json/`)
+    return axios.get(`https://viacep.com.br/ws/${zipcode}/json/`)
       .then(response => {
         dispatch({type: FETCH_CEP_SUCCESS, payload: response.data})
 
