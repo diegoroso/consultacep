@@ -2,7 +2,7 @@ import '../assets/styles/input-cep.scss'
 import React, { Component } from 'react';
 import InputMask from 'react-input-mask';
 
-class InputCep extends Component {
+export class InputCep extends Component {
 
   constructor() {
     super();

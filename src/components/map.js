@@ -5,7 +5,7 @@ import MarkerImg from '../assets/images/marker.png'
 
 const GoogleMapMarker = () => <img className="googlemaps-marker" src={MarkerImg} alt='Marker'/>;
 
-class Map extends Component {
+export class Map extends Component {
   render() {
     const { coordinates, zoom, marker } = this.props.location.data;
 

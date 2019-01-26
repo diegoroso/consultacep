@@ -19,8 +19,10 @@ const setup = () => {
 }
 
 describe('Loader', () => {
+  const { enzymeWrapper } = setup()
+  expect(enzymeWrapper).toMatchSnapshot();
+
   it('Aparecer e esconder o loader quando necessário', () => {
-    const { enzymeWrapper } = setup()
     expect(enzymeWrapper.find('.loader').hasClass('show')).toBeFalsy()
     enzymeWrapper.setProps({ show: true })
     expect(enzymeWrapper.find('.loader').hasClass('show')).toBeTruthy()
