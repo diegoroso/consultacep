@@ -2,7 +2,7 @@ import '../assets/styles/loader.scss'
 import React, { Component } from 'react';
 import LoaderImg from '../assets/images/loader.gif'
 
-class Loader extends Component {
+export class Loader extends Component {
   render() {
     return (
       <div data-cy="Loader" className={`loader ${this.props.show ? 'show' : ''}`}>

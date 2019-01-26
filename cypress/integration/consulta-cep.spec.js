@@ -4,15 +4,11 @@ describe('Consulta CEP Fluxo', () => {
     cy.contains('Consulta CEP')
     cy.contains('Preencha o cep no campo abaixo para consultar a região desejada.')
     cy.get('body').find('.app__informations__description').not('.app__informations__description--error')
-
-    cy.wait(1000)
   });
 
   it('Busca de cep inválido', () => {
     cy.get('[data-cy=InputMask]').click().type('12345678')
     cy.get('body').find('.app__informations__description--error')
-
-    cy.wait(3000)
   });
 
   it('Busca de cep válido', () => {
@@ -22,8 +18,6 @@ describe('Consulta CEP Fluxo', () => {
     cy.contains('Rua Maria Prestes Maia, Vila Guilherme')
     cy.contains('São Paulo/SP - 02047-000')
     cy.get('[data-cy=InputMask]').should('be.value', '02047-000')
-
-    cy.wait(3000)
   });
 
   it('Busca de outro cep válido', () => {
@@ -35,8 +29,6 @@ describe('Consulta CEP Fluxo', () => {
     cy.get('body').not('.app__informations__description--error')
     cy.contains('Rua Copos de Leite, Nova Cerejeira')
     cy.contains('Atibaia/SP - 12950-638')
-
-    cy.wait(3000)
   })
 
   it('Voltar ao estado inicial da página', () => {
@@ -46,7 +38,5 @@ describe('Consulta CEP Fluxo', () => {
     cy.contains('Preencha o cep no campo abaixo para consultar a região desejada.')
     cy.get('body').find('.app__informations__description').not('.app__informations__description--error')
     cy.get('body').not('.app__informations__description--error')
-
-    cy.wait(3000)
   })
 });

@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
   location: state.location
 })
 
-class App extends Component {
+export class App extends Component {
 
   constructor() {
     super()

@@ -37,9 +37,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
     "babel-jest": "23.6.0",
     "cypress": "^3.1.4",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
     "fetch-mock": "^7.3.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "23.6.0",
     "node-fetch": "^2.3.0",
     "redux-devtools-extension": "^2.13.7",
@@ -47,9 +52,15 @@
     "sass-lint": "^1.12.1"
   },
   "jest": {
+    "verbose": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test))\\.[j]s?$",
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/cypress/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(png|gif)$": "<rootDir>/src/assets/__mocks__/fileMock.js",
+      "\\.(scss)$": "identity-obj-proxy"
+    }
   }
 }
