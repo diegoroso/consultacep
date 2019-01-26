@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --headed"
   },
   "eslintConfig": {
     "extends": "react-app"
